@@ -7,13 +7,13 @@ const { Node } = require('../extensions/list-tree.js');
 * using Node from extensions
 */
 
-class Node {
-  constructor(data) {
-    this.data = data;
-    this.left = null;
-    this.right = null;
-  }
-}
+// class Node {
+//   constructor(data) {
+//     this.data = data;
+//     this.left = null;
+//     this.right = null;
+//   }
+// }
 
 class BinarySearchTree {
   constructor () {
@@ -100,23 +100,35 @@ class BinarySearchTree {
   }
 
   min() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    if (!this.begin) {
+      return null;
+    }
+    let minNode = this.begin;
+    while (minNode.left) {
+      minNode = minNode.left;
+    }
+    return minNode.data;
   }
 
   max() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    if (!this.begin) {
+      return null;
+    }
+    let maxNode = this.begin;
+    while (maxNode.right) {
+      maxNode = maxNode.right;
+    }
+    return maxNode.data;
   }
 }
 
-let obj = new BinarySearchTree()
-obj.add(10);
-obj.add(15);
-obj.add(7);
-obj.add(22);
+// let obj = new BinarySearchTree()
+// obj.add(10);
+// obj.add(15);
+// obj.add(7);
+// obj.add(22);
 // obj.remove(7)
-console.log(obj.has(7));
+// console.log(obj.has(7));
 
 
 
